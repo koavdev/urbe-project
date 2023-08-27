@@ -45,7 +45,7 @@ def getNote(request, pk):
     serializer = NoteSerializer(notes, many=False)
     return Response(serializer.data)
 
-
+# atualiza uma nota a partir do id
 @api_view(['PUT'])
 def updateNote(request, pk):
     data = request.data
@@ -56,3 +56,10 @@ def updateNote(request, pk):
         serializer.save()
 
     return Response(serializer.data)
+
+# delete uma nota a partir do id
+@api_view(['DELETE'])
+def deleteNote(request, pk):
+    note = Note.objects.get(id=pk)
+    note.delete()
+    return Response('Note was deleted')
