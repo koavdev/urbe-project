@@ -11,12 +11,15 @@ const NotePage = ({ match, history }) => {
     getNote()
   }, [noteId]);
 
+
+  // função para retornar a nota
   let getNote = async () => {
     let response = await fetch(`/api/notes/${noteId}`)
     let data = await response.json()
     setNote(data)
   }
 
+  // função de atualizar a nota
   let updateNote = async () => {
     fetch(`/api/notes/${noteId}/update/`, {
       method: "PUT",
