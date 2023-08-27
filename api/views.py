@@ -2,12 +2,13 @@ from django.shortcuts import render
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
 from .models import Note
+from .serializers import NoteSerializer
 
-# function based views
+
 
 
 # retorna um JSON com as rotas da aplicação
-@api_view(['GET'])
+@api_view(['GET']) # function based views
 def getRoutes(request):
 
     # rotas JSON
@@ -33,4 +34,5 @@ def getRoutes(request):
 @api_view(['GET'])
 def getNotes(request):
     notes = Note.objects.all() # retorna todos as notas do banco de dados
-    return Response(notes)
+    serializer = NoteSerializer(notes, many=True) # many = True -> mais de 1 objeto
+    return Response(serializer.data)
