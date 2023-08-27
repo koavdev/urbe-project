@@ -3,5 +3,5 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('api.urls')) # configura um novo caminho para as rotas da aplicação
+    path('api/', include('api.urls')) # configura um novo caminho para as rotas da aplicação
 ]
