@@ -17,8 +17,19 @@ const NotePage = ({ match, history }) => {
     setNote(data)
   }
 
+  let updateNote = async () => {
+    fetch(`/api/notes/${noteId}/update/`, {
+      method: "PUT",
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(note)
+    })
+  }
+
+  // atualiza a nota e volta para a Home
   let handleSubmit = () => {
-    //updateNote();
+    updateNote();
     history.push('/');
     window.location.href = '/'
 
@@ -31,7 +42,7 @@ const NotePage = ({ match, history }) => {
           <ArrowLeft onClick={handleSubmit}/>
         </h3>
       </div>
-      <textarea defaultValue={note?.body}></textarea>
+      <textarea onChange={(e) => { setNote({ ...note, 'body': e.target.value }) }} defaultValue={note?.body}></textarea>
     </div>
   )
 }
