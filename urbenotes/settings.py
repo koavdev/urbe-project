@@ -40,6 +40,9 @@ INSTALLED_APPS = [
 
     # conectando o core do projeto ao App (API)
     'api.apps.ApiConfig',
+
+    # adicionando o framework REST Django ao App
+    'rest_framework',
 ]
 
 MIDDLEWARE = [

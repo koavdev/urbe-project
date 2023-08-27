@@ -1,8 +1,13 @@
 from django.shortcuts import render
-from django.http import JsonResponse
+from rest_framework.response import Response
+from rest_framework.decorators import api_view
+from .models import Note
+
+# function based views
 
 
 # retorna um JSON com as rotas da aplicação
+@api_view(['GET'])
 def getRoutes(request):
 
     # rotas JSON
@@ -20,4 +25,12 @@ def getRoutes(request):
             'description': 'Retorna apenas uma nota única'
         }
     ]
-    return JsonResponse(routes, safe=False) # safe=False -> retorna outros tipos de dados além de Dictionary
+    
+    return Response(routes)
+
+
+# retorna um JSON com as notas criadas
+@api_view(['GET'])
+def getNotes(request):
+    notes = Note.objects.all() # retorna todos as notas do banco de dados
+    return Response(notes)
