@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react'
-import { Add } from '../assets/add.svg'
 import { ReactComponent as ArrowLeft } from '../assets/arrow-left.svg'
 
 const NotePage = ({ match, history }) => {
@@ -55,7 +54,12 @@ const NotePage = ({ match, history }) => {
         <h3>
           <ArrowLeft onClick={handleSubmit} />
         </h3>
-        <button onClick={deleteNote}>Delete</button>
+        {noteId !== 'new' ? (
+          <button onClick={deleteNote}>Delete</button>
+        ): (
+          <button>Done</button>
+        )}
+        
       </div>
       <textarea onChange={(e) => { setNote({ ...note, 'body': e.target.value }) }} defaultValue={note?.body}></textarea>
     </div>
