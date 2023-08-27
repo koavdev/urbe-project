@@ -29,7 +29,7 @@ const ListItem = ({ note }) => {
   }
 
   return (
-    <Link to={`/note/${note.id}`} onClick={() => { window.location.href = `/note/${note.id}` }}>
+    <Link to={`/note/${note.id}`}>
         <div className='notes-list-item'>
             <h3>{getTitle(note)} <span className='get-time'>• {getTime(note)}</span></h3>
             <p><span>{getContent(note)}</span></p>

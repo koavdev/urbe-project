@@ -50,23 +50,18 @@ const NotePage = ({ match, history }) => {
       },
     })
     history.push('/');
-    window.location.href = '/'
   }
 
   // atualiza a nota e volta para a Home
   let handleSubmit = () => {
     if (noteId !== 'new' && !note.body) {
       deleteNote();
-      history.push('/');
-      window.location.href = '/'
     } else if (noteId !== 'new') {
       updateNote();
       history.push('/');
-      window.location.href = '/'
-    } else if (noteId == 'new' && note !== null){
+    } else if (noteId === 'new' && note !== null){
       createNote();
       history.push('/');
-      window.location.href = '/'
     }
 
   }
