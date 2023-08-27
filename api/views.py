@@ -41,6 +41,6 @@ def getNotes(request):
 # retorna um JSON com a nota do respectivo ID como parâmetro
 @api_view(['GET'])
 def getNote(request, pk):
-    notes = Note.objects.get(id=pk)
-    serializer = NoteSerializer(notes, many=False)
+    notes = Note.objects.get(id=pk) # retorna a nota de acordo com o ID
+    serializer = NoteSerializer(notes, many=False) # many = False -> 1 único objeto
     return Response(serializer.data)
