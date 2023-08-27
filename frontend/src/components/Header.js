@@ -1,9 +1,10 @@
 import React from 'react'
+import Urbe from '../assets/urbe-logo.png'
 
 const Header = () => {
   return (
-    <div>
-        <h1>Header</h1>
+    <div className='app-header'>
+        <img src={Urbe} alt="urbe logo"/>
     </div>
   )
 }

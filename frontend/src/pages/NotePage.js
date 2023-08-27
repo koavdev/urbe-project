@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react'
+import { Add } from '../assets/add.svg'
+import { ReactComponent as ArrowLeft } from '../assets/arrow-left.svg'
 
-const NotePage = ({ match }) => {
+const NotePage = ({ match, history }) => {
 
   let noteId = match.params.id;
   let [note, setNote] = useState(null);
@@ -15,9 +17,21 @@ const NotePage = ({ match }) => {
     setNote(data)
   }
 
+  let handleSubmit = () => {
+    //updateNote();
+    history.push('/');
+    window.location.href = '/'
+
+  }
+
   return (
-    <div>
-        <p>{note?.body}</p>
+    <div className='note'>
+      <div className='note-header'>
+        <h3>
+          <ArrowLeft onClick={handleSubmit}/>
+        </h3>
+      </div>
+      <textarea defaultValue={note?.body}></textarea>
     </div>
   )
 }
