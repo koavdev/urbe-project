@@ -3,6 +3,7 @@ from rest_framework.response import Response
 from rest_framework.decorators import api_view
 from .models import Note
 from .serializers import NoteSerializer
+from .utils import updateNote, getNoteDetail, getNotesList, deleteNote, createNote
 
 
 
@@ -30,22 +31,34 @@ def getRoutes(request):
     return Response(routes)
 
 
-# retorna um JSON com as notas criadas
-@api_view(['GET'])
+@api_view(['GET', 'POST'])
 def getNotes(request):
-    notes = Note.objects.all() # retorna todos as notas do banco de dados
-    serializer = NoteSerializer(notes, many=True) # many = True -> mais de 1 objeto
-    return Response(serializer.data)
+    
+    # se o método HTTP for GET, então retorna todas as notas
+    if request.method == 'GET':
+        return getNotesList(request)
+    
+    # se o método HTTP for POST, então cria uma nota nova
+    if request.method == 'POST':
+        return createNote(request)
 
 
-# retorna um JSON com a nota do respectivo ID como parâmetro
-@api_view(['GET'])
+@api_view(['GET', 'PUT', 'DELETE'])
 def getNote(request, pk):
-    notes = Note.objects.get(id=pk)
-    serializer = NoteSerializer(notes, many=False)
-    return Response(serializer.data)
+    
+    # se o método HTTP for GET, então retorna o conteúdo da nota
+    if request.method == 'GET':
+        return getNoteDetail(request, pk)
+    
+    # se o método HTTP for PUT, então atualiza a nota
+    if request.method == 'PUT':
+        return updateNote(request, pk)
+    
+    # se o método HTTP for DELETE, então deleta a nota
+    if request.method == 'DELETE':
+        return deleteNote(request, pk)
 
-# cria uma nota nova
+""" # cria uma nota nova
 @api_view(['POST'])
 def createNote(request):
     data = request.data
@@ -73,4 +86,4 @@ def updateNote(request, pk):
 def deleteNote(request, pk):
     note = Note.objects.get(id=pk)
     note.delete()
-    return Response('Note was deleted')
+    return Response('Note was deleted') """

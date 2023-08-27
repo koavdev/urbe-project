@@ -22,7 +22,7 @@ const NotePage = ({ match, history }) => {
 
   // função de criar a nota
   let createNote = async () => {
-    fetch(`/api/notes/create/`, {
+    fetch(`/api/notes/`, {
       method: "POST",
       headers: {
         'Content-Type': 'application/json',
@@ -33,7 +33,7 @@ const NotePage = ({ match, history }) => {
 
   // função de atualizar a nota
   let updateNote = async () => {
-    fetch(`/api/notes/${noteId}/update/`, {
+    fetch(`/api/notes/${noteId}/`, {
       method: "PUT",
       headers: {
         'Content-Type': 'application/json',
@@ -43,7 +43,7 @@ const NotePage = ({ match, history }) => {
   }
 
   let deleteNote = async () => {
-    fetch(`/api/notes/${noteId}/delete/`, {
+    fetch(`/api/notes/${noteId}/`, {
       method: "DELETE",
       headers: {
         'Content-Type': 'application/json',
