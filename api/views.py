@@ -36,3 +36,11 @@ def getNotes(request):
     notes = Note.objects.all() # retorna todos as notas do banco de dados
     serializer = NoteSerializer(notes, many=True) # many = True -> mais de 1 objeto
     return Response(serializer.data)
+
+
+# retorna um JSON com a nota do respectivo ID como parâmetro
+@api_view(['GET'])
+def getNote(request, pk):
+    notes = Note.objects.get(id=pk)
+    serializer = NoteSerializer(notes, many=False)
+    return Response(serializer.data)
