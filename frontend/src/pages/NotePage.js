@@ -29,6 +29,7 @@ const NotePage = ({ match, history }) => {
       },
       body: JSON.stringify(note)
     })
+    window.location.href = '/'
   }
 
   // função de atualizar a nota
@@ -40,6 +41,7 @@ const NotePage = ({ match, history }) => {
       },
       body: JSON.stringify(note)
     })
+    window.location.href = '/'
   }
 
   let deleteNote = async () => {
@@ -50,6 +52,7 @@ const NotePage = ({ match, history }) => {
       },
     })
     history.push('/');
+    window.location.href = '/'
   }
 
   // atualiza a nota e volta para a Home
