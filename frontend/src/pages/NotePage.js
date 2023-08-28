@@ -11,7 +11,7 @@ const NotePage = ({ match, history }) => {
   }, [noteId]);
 
 
-  // função para retornar a nota
+  // chamada de API com método HTTP = GET (getNote)
   let getNote = async () => {
     if (noteId === 'new') return
 
@@ -20,7 +20,7 @@ const NotePage = ({ match, history }) => {
     setNote(data)
   }
 
-  // função de criar a nota
+  // chamada de API com método HTTP = POST (createNote)
   let createNote = async () => {
     fetch(`/api/notes/`, {
       method: "POST",
@@ -32,7 +32,7 @@ const NotePage = ({ match, history }) => {
     window.location.href = '/'
   }
 
-  // função de atualizar a nota
+  // chamada de API com método HTTP = PUT (updateNote)
   let updateNote = async () => {
     fetch(`/api/notes/${noteId}/`, {
       method: "PUT",
@@ -44,6 +44,7 @@ const NotePage = ({ match, history }) => {
     window.location.href = '/'
   }
 
+  // chamada de API com método HTTP = DELETE (deleteNote)
   let deleteNote = async () => {
     fetch(`/api/notes/${noteId}/`, {
       method: "DELETE",
@@ -55,7 +56,7 @@ const NotePage = ({ match, history }) => {
     window.location.href = '/'
   }
 
-  // atualiza a nota e volta para a Home
+  // atualiza, deleta ou cria uma única nota e volta para a Home
   let handleSubmit = () => {
     if (noteId !== 'new' && !note.body) {
       deleteNote();

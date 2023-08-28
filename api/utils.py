@@ -2,19 +2,19 @@ from rest_framework.response import Response
 from .models import Note
 from .serializers import NoteSerializer
 
-
+# retorna todas as notas
 def getNotesList(request):
     notes = Note.objects.all().order_by('-updated')
     serializer = NoteSerializer(notes, many=True)
     return Response(serializer.data)
 
-
+# retorna o corpo de uma única nota
 def getNoteDetail(request, pk):
     notes = Note.objects.get(id=pk)
     serializer = NoteSerializer(notes, many=False)
     return Response(serializer.data)
 
-
+# cria uma nova nota
 def createNote(request):
     data = request.data
     note = Note.objects.create(
@@ -23,6 +23,7 @@ def createNote(request):
     serializer = NoteSerializer(note, many=False)
     return Response(serializer.data)
 
+# atualiza uma única nota
 def updateNote(request, pk):
     data = request.data
     note = Note.objects.get(id=pk)
@@ -33,7 +34,7 @@ def updateNote(request, pk):
 
     return Response(serializer.data)
 
-
+# deleta uma única nota
 def deleteNote(request, pk):
     note = Note.objects.get(id=pk)
     note.delete()

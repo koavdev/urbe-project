@@ -3,10 +3,12 @@ import { Link } from 'react-router-dom'
 
 const ListItem = ({ note }) => {
 
+  // retorna a data da atualização da nota
   let getTime = () => {
     return new Date(note.updated).toLocaleDateString()
   }
 
+  // retorna o título da nota (até 45 caracteres)
   let getTitle = (note) => {
     
     let title = note.body.split('\n')[0]
@@ -16,6 +18,7 @@ const ListItem = ({ note }) => {
     return title
   }
 
+  // retorna o conteúdo (body) da nota até 45 caracteres
   let getContent = (note) => {
     let title = getTitle(note)
     let content = note.body.replaceAll('\n', ' ')

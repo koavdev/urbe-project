@@ -1,9 +1,7 @@
 import Header from './components/Header';
 import './App.css';
 import NotesListPage from './pages/NotesListPage';
-import {
-  Route
-} from 'react-router-dom';
+import {  Route } from 'react-router-dom';
 import NotePage from './pages/NotePage'
 
 

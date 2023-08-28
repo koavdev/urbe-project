@@ -43,12 +43,15 @@ INSTALLED_APPS = [
 
     # adicionando o framework REST Django ao App
     'rest_framework',
+
+    # resolve o erro de CORS (MissingAllowOriginHeader)
     'corsheaders',
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
 
+    # resolve o erro de CORS (MissingAllowOriginHeader)
     'corsheaders.middleware.CorsMiddleware',
 
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -138,5 +141,5 @@ STATICFILES_DIRS = [
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-
+# resolve o erro de CORS (MissingAllowOriginHeader)
 CORS_ORIGIN_ALLOW_ALL = True
