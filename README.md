@@ -2,6 +2,8 @@
 
 O Noteapp é uma aplicação web que simula um Bloco de Notas, permitindo ao usuário criar, editar, atualizar e deletar notas.
 
+<img src="https://github.com/koavdev/urbe-project/assets/81250968/334f11b9-6f3d-4ee1-8b43-4239e1e8d20a">
+
 ## Tecnologias
 - Django
 - React
