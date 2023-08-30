@@ -64,35 +64,37 @@ Por fim, executamos o comando `npm run build` para construir um diretório conte
 
 ## Instalação
 <strong>Windows:</strong>
+<br>
 1. Clone o projeto
 `git clone https://github.com/koavdev/urbe-project.git`
-<br>
+
 2. Crie um ambiente virtual
 `python3 -m venv env`
-<br>
+
 3. Ative o ambiente virtual
 `.\env\Scripts\Activate`
-<br>
+
 4. Instale os requisitos
 `pip install -r requirements.txt`
-<br>
+
 5. Execute o servidor
 `python3 manage.py runserver`
 
 <br>
 
 <strong>Mac/Linux:</strong>
+<br>
 1. Clone o projeto
 `git clone https://github.com/koavdev/urbe-project.git`
-<br>
+
 2. Crie um ambiente virtual
 `python3 -m venv env`
-<br>
+
 3. Ative o ambiente virtual
 `source env/bin/activate`
-<br>
+
 4. Instale os requisitos
 `pip install -r requirements.txt`
-<br>
+
 5. Execute o servidor
 `python3 manage.py runserver`
