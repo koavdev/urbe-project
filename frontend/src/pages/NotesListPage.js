@@ -18,10 +18,11 @@ const NotesListPage = () => {
     setNotes(data)
   }
 
+  // retorna uma lista com todas as notas criadas/existentes
   return (
     <div className='notes'>
       <div className='notes-header'>
-        <h2 className='notes-title'>&#9782; Notepad</h2>
+        <h2 className='notes-title'>&#9782; Noteapp</h2>
         <p className='notes-count'>{notes.length}</p>
       </div>
       <div className='notes-list'>

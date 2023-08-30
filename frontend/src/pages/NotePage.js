@@ -70,6 +70,7 @@ const NotePage = ({ match, history }) => {
 
   }
 
+  // retorna a visualização para criar, alterar ou deletar uma nota
   return (
     <div className='note'>
       <div className='note-header'>
